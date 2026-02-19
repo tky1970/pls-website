@@ -4,13 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お問い合わせ内容の確認 | PLS</title>
+  <title>入力エラー | PLS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <style>
+    .error-msg-box {
+      background: #fff5f5;
+      border-left: 4px solid #f87171;
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .error-msg-list {
+      margin: 0;
+      padding-left: var(--spacing-lg);
+      color: #b91c1c;
+      font-weight: 500;
+    }
+
     .conf-table {
       width: 100%;
       border-collapse: collapse;
@@ -76,13 +90,13 @@
 
   <section class="page-header">
     <div class="container">
-      <h1>お問い合わせ（確認）</h1>
+      <h1>お問い合わせ（エラー）</h1>
       <div class="breadcrumb">
         <a href="../../index.html">ホーム</a>
         <i class="fas fa-chevron-right"></i>
         <a href="../index.html">お問い合わせ</a>
         <i class="fas fa-chevron-right"></i>
-        <span>内容確認</span>
+        <span>入力エラー</span>
       </div>
     </div>
   </section>
@@ -91,10 +105,15 @@
     <div class="container">
       <div class="contact-form-container">
         <div class="contact-form">
-          <h3 style="margin-bottom: var(--spacing-lg); color: var(--color-primary);">
-            <i class="fas fa-check-circle"></i> 入力内容の確認
+          <h3 style="margin-bottom: var(--spacing-lg); color: #b91c1c;">
+            <i class="fas fa-exclamation-triangle"></i> 入力内容にエラーがあります
           </h3>
-          <p style="margin-bottom: var(--spacing-xl);">以下の内容でよろしければ「送信する」ボタンを押して下さい。</p>
+
+          <div class="error-msg-box">
+            <ul class="error-msg-list">
+              <li>前画面に戻って正しく入力してください。</li>
+            </ul>
+          </div>
 
           <table class="conf-table">
             <!-- cell -->
@@ -105,13 +124,10 @@
             <!-- /cell -->
           </table>
 
-          <form action="!mail_cgi!" method="post">
-            <!-- hidden -->
-            <div class="form-actions">
-              <input type="button" value="前に戻る" class="btn btn-outline btn-lg" onclick="history.back()">
-              <input type="submit" value="送信する" class="btn btn-primary btn-lg">
-            </div>
-          </form>
+          <div class="form-actions">
+            <input type="button" value="前に戻って修正する" class="btn btn-primary btn-lg" style="width: 100%;"
+              onclick="history.back()">
+          </div>
         </div>
       </div>
     </div>
